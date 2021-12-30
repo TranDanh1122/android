@@ -49,7 +49,7 @@ public class DangnhapActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
 
-                    startActivity(new Intent(DangnhapActivity.this, Listtinnhan.class));
+                    startActivity(new Intent(DangnhapActivity.this, MainActivity.class));
                     finish();
 
                 }else{

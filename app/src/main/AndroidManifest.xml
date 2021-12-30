@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".Listtinnhan"
+            android:name=".Setting"
+            android:exported="true" />
+        <activity
+            android:name=".UserProfile"
             android:exported="true" />
         <activity
             android:name=".DangnhapActivity"
@@ -19,7 +22,7 @@
             android:name=".DangkyActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
