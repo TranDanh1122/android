@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.model.anotheruser;
 import com.example.myapplication.model.currentuser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,14 +31,14 @@ public class UserProfile extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
 
-            String value = getIntent().getStringExtra("userclicked");
-             if (value != null) {
+            String nguoinhan = getIntent().getStringExtra("userclicked");
+             if (nguoinhan != null) {
             name=findViewById(R.id.name);
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
             DatabaseReference reference= FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
-            reference.child("User").child(value).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            reference.child("User").child(nguoinhan).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
 
@@ -52,7 +53,11 @@ public class UserProfile extends AppCompatActivity {
             nhantin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(UserProfile.this,TimKiem.class));
+
+                    Intent intent= new Intent(UserProfile.this,ChatActivitive.class);
+
+                    intent.putExtra("nguoinhan",nguoinhan);
+                    startActivity(intent);
                     finish();
                 }
             });

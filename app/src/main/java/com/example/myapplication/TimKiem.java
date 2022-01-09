@@ -49,16 +49,22 @@ public class TimKiem extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {
                         resultlist = new ArrayList<>();
-                        for (DataSnapshot dt : task.getResult().getChildren()) {
-                            anotheruser anotheruser = dt.getValue(com.example.myapplication.model.anotheruser.class);
-                            String userId = dt.child("id").getValue(String.class);
-                            String name = dt.child("username").getValue(String.class);
-                            resultlist.add(new anotheruser(userId, name, "user"));
+
+                            for (DataSnapshot dt : task.getResult().getChildren()) {
+                                if (!dt.exists()) {
+
+                                } else {
+                                anotheruser anotheruser = dt.getValue(com.example.myapplication.model.anotheruser.class);
+                                String userId = dt.child("id").getValue(String.class);
+                                String name = dt.child("username").getValue(String.class);
+                                resultlist.add(new anotheruser(userId, name, "user"));
                             }
-                        adapter = new anotheruser_ctrl(TimKiem.this, R.layout.search_result, resultlist);
-                        adapter.notifyDataSetChanged();
-                        lvDanhSach.setAdapter(adapter);
-                        }
+                            }
+                            adapter = new anotheruser_ctrl(TimKiem.this, R.layout.search_result, resultlist);
+                            adapter.notifyDataSetChanged();
+                            lvDanhSach.setAdapter(adapter);
+
+                    }
                     });
             }
         });

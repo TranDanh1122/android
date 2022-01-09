@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".ChatActivitive"
+            android:exported="true" />
+        <activity
             android:name=".TimKiem"
             android:exported="true" />
         <activity
@@ -30,7 +33,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".StartActivity"
             android:exported="true">

@@ -25,6 +25,11 @@
 
     </LinearLayout>
 
+<ListView
+    android:layout_width="match_parent"
+    android:id="@+id/lastmess"
+    android:layout_height="400dp">
 
+</ListView>
 
 </LinearLayout>
